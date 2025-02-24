@@ -5,9 +5,6 @@ title: 11ty Boilerplate
 
 <div x-data="{ users: $fetch('https://jsonplaceholder.typicode.com/users') }">
   <template x-for="user in users" :key="user.id">
-    {% include 'components/user-card.liquid' %}
+    {% userCard user %}
   </template>
 </div>
-
-
-</span>
