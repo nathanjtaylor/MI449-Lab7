@@ -3,5 +3,11 @@ layout: layout.liquid
 title: 11ty Boilerplate
 ---
 
-<h1>Yet Another 11ty <strong>Boilerplate</strong></h1>
-<img alt="pine" src="/images/pine.png" width="50" />
+<div x-data="{ users: $fetch('https://jsonplaceholder.typicode.com/users') }">
+  <template x-for="user in users" :key="user.id">
+    {% include 'components/user-card.liquid' %}
+  </template>
+</div>
+
+
+</span>
