@@ -1,10 +1,29 @@
 ---
 layout: layout.liquid
-title: 11ty Boilerplate
+title: Positiotron
 ---
 
-<div x-data="{ users: $fetch('https://jsonplaceholder.typicode.com/users') }">
-  <template x-for="user in users" :key="user.id">
-    {% userCard user %}
+<div class="flex items-center gap-2 mb-4 p-2 border rounded" x-data="{ status: $fetchjson('https://dummyjson.com/test', jsonItem='status') }">
+  <span class="text-white">API Status</span>
+  <span class="text-green-500 text-2xl" x-text="status">reload</span>
+</div>
+
+<div x-data = "{ users: $fetchjson('https://dummyjson.com/users', jsonItem='users') }">
+<template x-for="user in users" :key="user.id">
+  <div class="p-4 border rounded shadow mb-4 text-white">
+    <h2 class="text-xl font-semibold text-white" x-text="user.firstName.concat(' ', user.lastName)"></h2>
+    <p class="text-white" x-text="'@'.concat(user.username)"></p>
+    <p class="text-white" x-text="user.email"></p>
+    <p class="text-white" x-text="user.address.city.concat(', ', user.address.stateCode)"></p>
+  </div>
   </template>
 </div>
+
+
+<!---
+SOURCES
+https://dummyjson.com/ for data and logo image
+
+CHATGPT 4o (OpenAI)
+Claude 3.5 Sonnet (Anthropic)
+-->
